@@ -1,12 +1,35 @@
-# React + Vite
+# Weather Forecast
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Project Description
+Weather Forecast is a weather forecasting application built with **Vite + React**. You can search for any city to get current weather conditions and a five-day forecast.
 
-Currently, two official plugins are available:
+### Features
+- **Check Weather Conditions** - Retrieve temperature, humidity, wind speed, and weather status of a city
+- **5Day Weather Forecast** - Display daily high and low temperatures along with weather conditions
+- **Temperature Conversion** - Switch between Celsius (℃) and Fahrenheit (℉)
+- **Debounce Quick Search** - Get results instantly while typing the city name without pressing a search button
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local Setup Guide
+1. Ensure **Node.js** is installed (LTS version recommended)
+2. Clone the repository to your local machine:
+   ```sh
+   git clone https://github.com/kousatw/weather-forecast.git
+   cd weather-forecast
+   ```
+3. Install dependencies:
+   ```sh
+   npm install
+   ```
+4. Start the development server:
+   ```sh
+   npm run dev
+   ```
+5. Open your browser and navigate to:
+   ```
+   http://localhost:5173/
+   ```
 
-## Expanding the ESLint configuration
+## Running on GitHub Pages
+🌐 Try the live application:
+**[Weather Forecast Application](https://kousatw.github.io/weather-forecast/)**
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
