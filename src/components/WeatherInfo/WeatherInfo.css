@@ -1,0 +1,167 @@
+#weatherInfoContainer {
+	margin-top: 100px;
+	margin-inline: auto;
+	width: min(61.8vw, 500px);
+	max-width: 90vw;
+}
+
+#currentWeather {
+	max-width: 400px;
+	width: 90%;
+	background: linear-gradient(135deg, #4facfe, #00f2fe);
+	border-radius: 12px;
+	padding: 20px;
+	color: var(--main-color);
+
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.top-section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+
+#cityName {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+#temperatureUnit {
+	padding: 5px;
+	border-radius: 7px;
+	font-size: 1rem;
+	background-color: var(--main-bg-color);
+	border: none;
+	outline: none;
+}
+
+#temperature {
+	font-size: 1.8rem;
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.bottom-section {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 15px;
+}
+
+.weather-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	flex: 1;
+}
+
+.weather-item img {
+	width: 40px;
+	height: 40px;
+	margin-bottom: 5px;
+}
+
+p {
+	font-size: 1.2rem;
+	margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+	#currentWeather {
+		max-width: 90%;
+		padding: 15px;
+	}
+
+	#cityName {
+		font-size: 1.3rem;
+	}
+
+	#temperature {
+		font-size: 1.5rem;
+	}
+
+	p {
+		font-size: 1rem;
+	}
+
+	.weather-item img {
+		width: 35px;
+		height: 35px;
+	}
+}
+
+@media (max-width: 480px) {
+	#currentWeather {
+		padding: 10px;
+	}
+
+	#cityName {
+		font-size: 1.2rem;
+	}
+
+	#temperature {
+		font-size: 1.3rem;
+	}
+
+	p {
+		font-size: 0.9rem;
+	}
+
+	.weather-item img {
+		width: 30px;
+		height: 30px;
+	}
+}
+
+/* weather Forecast */
+
+#weatherForecast {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #2c2c2c; /* 深色背景 */
+	color: #f0f0f0; /* 淺色字體 */
+	border-radius: 8px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+#weatherForecast section {
+	display: flex;
+	justify-content: space-between; /* 使左右內容對齊 */
+	align-items: center;
+	background-color: #3a3a3a; /* 深灰色背景 */
+	margin-bottom: 10px;
+	padding: 15px;
+	border-radius: 8px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#weatherForecast section p {
+	font-size: 14px;
+	color: #f0f0f0; /* 淺色字體 */
+	margin: 5px 0;
+}
+
+#weatherForecast section p:first-child {
+	font-weight: bold;
+	font-size: 16px;
+}
+
+#weatherForecast section p:nth-child(2) {
+	font-size: 14px;
+	color: #6a6a6a; /* 文字顏色稍微變淡 */
+}
+
+#weatherForecast section p:nth-child(3) {
+	font-size: 14px;
+	color: #ff6347; /* 溫度的顏色可以保持紅色 */
+}
+
+#weatherForecast section p span {
+	font-weight: bold;
+}
