@@ -1,11 +1,15 @@
+//React
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+// Utils
 import { weatherCodeConversion } from "../../utils/weatherCodeConversion.ts";
 import { celsiusToFahrenheit } from "../../utils/celsiusToFahrenheit.ts";
-
+// Icon
 import wind from "../../assets/wind.png";
 import humidity from "../../assets/humidity.png";
-
+// Components
+import Loader from "../Loader/Loader.jsx";
+// CSS
 import "./WeatherInfo.css";
 
 function WeatherInfo() {
@@ -53,25 +57,23 @@ function WeatherInfo() {
 	}
 	return (
 		<>
-			{weatherInfo ? (
-				<div id="weatherInfoContainer">
+			<div id="weatherInfoContainer">
+				{weatherInfo ? (
 					<div id="currentWeather">
 						<div class="top-section">
+							<p id="cityName">{weatherInfo.city_name}</p>
 
-								<p id="cityName">{weatherInfo.city_name}</p>
-
-								<p id="temperature">
-									{temp}°{unit === "Celsius" ? "C" : "F"}
-								</p>
-								<select
-									id="temperatureUnit"
-									onChange={(e) => changeTemp(e.target.value)}
-									value={unit}
-								>
-									<option value="Celsius">°C</option>
-									<option value="Fahrenheit">°F</option>
-								</select>
-
+							<p id="temperature">
+								{temp}°{unit === "Celsius" ? "C" : "F"}
+							</p>
+							<select
+								id="temperatureUnit"
+								onChange={(e) => changeTemp(e.target.value)}
+								value={unit}
+							>
+								<option value="Celsius">°C</option>
+								<option value="Fahrenheit">°F</option>
+							</select>
 						</div>
 
 						<div class="bottom-section">
@@ -106,33 +108,43 @@ function WeatherInfo() {
 							</div>
 						</div>
 					</div>
+				) : (
+					<div id="currentWeather">
+						<Loader />
+					</div>
+				)}
 
-					{weatherInfo.daily && (
-						<div id="weatherForecast">
-							{weatherInfo.daily.time.map((date, index) => (
-								<section key={"weatherInfo" + index}>
-									{date.substr(5,5)}
-									<p key={"date" + index}>										
-										{weatherCodeConversion(
-											weatherInfo.daily.weather_code[
-												index
-											]
-										)}
-									</p>
-									<p key={"temp" + index}>
-										{dailyTempMin[index]}°
-										{unit === "Celsius" ? "C" : "F"}~{" "}
-										{dailyTempMax[index]}°
-										{unit === "Celsius" ? "C" : "F"}
-									</p>
-								</section>
-							))}
-						</div>
-					)}
-				</div>
-			) : (
-				<></>
-			)}
+				{weatherInfo ? (
+					<div id="weatherForecast">
+						{weatherInfo.daily.time.map((date, index) => (
+							<section
+								className="daily-card"
+								key={"weatherInfo" + index}
+							>
+								<p className="date">{date.substr(5, 5)}</p>
+								<p
+									className="daily-weather"
+									key={"date" + index}
+								>
+									{weatherCodeConversion(
+										weatherInfo.daily.weather_code[index]
+									)}
+								</p>
+								<p key={"temp" + index} className="daily-temp">
+									{dailyTempMin[index]}°
+									{unit === "Celsius" ? "C" : "F"}~{" "}
+									{dailyTempMax[index]}°
+									{unit === "Celsius" ? "C" : "F"}
+								</p>
+							</section>
+						))}
+					</div>
+				) : (
+					<div id="weatherForecast">
+						<Loader></Loader>
+					</div>
+				)}
+			</div>
 		</>
 	);
 }
