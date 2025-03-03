@@ -1,7 +1,11 @@
+// React
 import { useState, useEffect } from "react";
-import { setWeatherInfo } from "../../features/weather/weatherSlice";
 import { useDispatch } from "react-redux";
+// Store
+import { setWeatherInfo } from "../../features/weather/weatherSlice";
+// Utils
 import { coordinateToString } from "../../utils/coordinateTransfer";
+// CSS
 import "./SearchBar.css";
 
 function SearchBar() {
